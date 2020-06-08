@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, ShowPokeList } from './styles';
+import { Container, ShowPokeList, LoadingText } from './styles';
 
 import Header from './components/header';
+import PokeApi from '../../services/PokeApi';
 
 function Home({ navigation }) {
+  const [pokemonEntries, setPokemonEntries] = useState([]);
+
+  useEffect(() => {
+    PokeApi.getList().then((r) => {
+      console.log(r[0]);
+      setPokemonEntries(r);
+    });
+  }, []);
+
   return (
     <Container>
       <Header />
-      <ShowPokeList navigation={navigation} />
+      {pokemonEntries.length > 0 ? (
+        <ShowPokeList navigation={navigation} pokemonEntries={pokemonEntries} />
+      ) : (
+        <LoadingText>Loading...</LoadingText>
+      )}
     </Container>
   );
 }

@@ -8,7 +8,7 @@ import Icons from '../../Utils/Icons';
 const TypeBadge = ({ type }) => {
   return (
     <Container color={Colors.type[type]}>
-      <Icon>{Icons.types[type].white}</Icon>
+      {Icons.types[type] && <Icon>{Icons.types[type].white}</Icon>}
       <Text>{type}</Text>
     </Container>
   );

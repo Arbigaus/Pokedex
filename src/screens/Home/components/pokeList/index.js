@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+
+import PokeApi from '../../../../services/PokeApi';
 
 import {
   Container,
@@ -19,38 +21,8 @@ import Helpers from '../../../../Helpers';
 import Variables from '../../../../Utils/Variables';
 
 const { imgUrl } = Variables;
-const pokemonEntries = [
-  {
-    name: 'bulbasaur',
-    number: 1,
-    types: ['grass', 'poison'],
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-  },
-  {
-    name: 'ivysaur',
-    number: 2,
-    types: ['grass', 'poison'],
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png',
-  },
-  {
-    name: 'venusaur',
-    number: 3,
-    types: ['grass', 'poison'],
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png',
-  },
-  {
-    name: 'charmander',
-    number: 4,
-    types: ['fire'],
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png',
-  },
-];
 
-const PokeList = ({ navigation }) => {
+const PokeList = ({ navigation, pokemonEntries }) => {
   const handleClick = (pokeData) => {
     const { navigate } = navigation;
     navigate('Pokemon', { navigation, pokeData });
@@ -88,6 +60,8 @@ const PokeList = ({ navigation }) => {
 
 PokeList.propTypes = {
   navigation: PropTypes.objectOf(PropTypes.object).isRequired,
+  pokemonEntries: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+    .isRequired,
 };
 
 export default PokeList;

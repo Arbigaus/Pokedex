@@ -7,4 +7,11 @@ export const Container = styled.SafeAreaView`
   padding-bottom: 1px;
 `;
 
+export const LoadingText = styled.Text`
+  flex: 1;
+
+  font-size: 25px;
+  text-align: center;
+`;
+
 export const ShowPokeList = styled(PokeList)``;
