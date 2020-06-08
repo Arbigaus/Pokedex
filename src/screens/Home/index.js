@@ -1,17 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Container, ShowPokeList } from './styles';
 
 import Header from './components/header';
-import PokeList from './components/PokeList';
 
-function Home() {
+function Home({ navigation }) {
   return (
     <Container>
       <Header />
-      <ShowPokeList />
+      <ShowPokeList navigation={navigation} />
     </Container>
   );
 }
+
+Home.propTypes = {
+  navigation: PropTypes.objectOf(PropTypes.object).isRequired,
+};
 
 export default Home;

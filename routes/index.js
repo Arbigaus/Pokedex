@@ -2,10 +2,12 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import Screens from '../src/screens';
 
+const { Home, Pokemon } = Screens;
 const Index = createAppContainer(
   createSwitchNavigator(
     {
-      Home: Screens.Home,
+      Home,
+      Pokemon,
     },
     {
       initialRouteName: 'Home',

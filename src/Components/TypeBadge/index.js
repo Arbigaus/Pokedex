@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Container, Icon, Text } from './styles';
 import Colors from '../../Utils/Colors';
 import Icons from '../../Utils/Icons';
 
-const Badge = ({ type }) => {
+const TypeBadge = ({ type }) => {
   return (
     <Container color={Colors.type[type]}>
       <Icon>{Icons.types[type].white}</Icon>
@@ -14,8 +14,8 @@ const Badge = ({ type }) => {
   );
 };
 
-Badge.propTypes = {
+TypeBadge.propTypes = {
   type: PropTypes.string.isRequired,
 };
 
-export default Badge;
+export default TypeBadge;

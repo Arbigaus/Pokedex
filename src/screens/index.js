@@ -1,4 +1,4 @@
-import Home from './home';
+import Home from './Home';
 import Pokemon from './Pokemon';
 
 const Screens = {

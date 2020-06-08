@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   Container,
   FlatList,
   Item,
-  PokeName,
-  BadgeArea,
-  PokeNumber,
-  InfoArea,
   ImageArea,
   PokeImage,
+  InfoArea,
   PokeBackground,
+  Details,
 } from './styles';
-import Badge from '../../../../Components/Badge';
 
 import Colors from '../../../../Utils/Colors';
-
 import PokeballFull from '../../../../assets/Images/Pokeball_Full.png';
 
-const imgUrl = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/';
+import Helpers from '../../../../Helpers';
+import Variables from '../../../../Utils/Variables';
+
+const { imgUrl } = Variables;
 const pokemonEntries = [
   {
     name: 'bulbasaur',
@@ -50,40 +50,44 @@ const pokemonEntries = [
   },
 ];
 
-const formatNumber = (number) => {
-  if (number >= 100) return `${number}`;
-  if (number >= 10) return `0${number}`;
+const PokeList = ({ navigation }) => {
+  const handleClick = (pokeData) => {
+    const { navigate } = navigation;
+    navigate('Pokemon', { navigation, pokeData });
+  };
 
-  return `00${number}`;
-};
-
-const PokeList = () => {
   return (
     <Container>
       <FlatList
         data={pokemonEntries}
         renderItem={({ item }) => (
-          <Item key={item.number} color={Colors.backgroundType[item.types[0]]}>
-            <InfoArea>
-              <PokeNumber>{`#${formatNumber(item.number)}`}</PokeNumber>
-              <PokeName>{item.name}</PokeName>
-              <BadgeArea>
-                {item.types.map((type) => (
-                  <Badge key={`${item.name}-${type}`} type={type} />
-                ))}
-              </BadgeArea>
-            </InfoArea>
-            <ImageArea>
-              <PokeBackground source={PokeballFull} />
-              <PokeImage
-                source={{ uri: `${imgUrl}${formatNumber(item.number)}.png` }}
-              />
-            </ImageArea>
+          <Item
+            onPress={() => handleClick(item)}
+            key={item.number}
+            color={Colors.backgroundType[item.types[0]]}
+          >
+            <>
+              <InfoArea>
+                <Details pokeData={item} />
+              </InfoArea>
+              <ImageArea>
+                <PokeBackground source={PokeballFull} />
+                <PokeImage
+                  source={{
+                    uri: `${imgUrl}${Helpers.formatNumber(item.number)}.png`,
+                  }}
+                />
+              </ImageArea>
+            </>
           </Item>
         )}
       />
     </Container>
   );
+};
+
+PokeList.propTypes = {
+  navigation: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 export default PokeList;
