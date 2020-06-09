@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Container, Icon, Text } from './styles';
-import Colors from '../../Utils/Colors';
-import Icons from '../../Utils/Icons';
+import Colors from '../../utils/Colors';
+import Icons from '../../utils/Icons';
 
 const TypeBadge = ({ type }) => {
   return (

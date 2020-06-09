@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import PokeDetails from '../../../../Components/PokeDetails';
+import PokeDetails from '../../../../components/PokeDetails';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -64,9 +64,24 @@ export const Text = styled.Text`
 `;
 
 export const ButtonsArea = styled.View`
-  height: 50px;
+  height: 40px;
 
   display: flex;
   flex-direction: row;
-  padding: 20px;
+  justify-content: space-around;
+  align-content: space-around;
+`;
+
+export const DetailsButton = styled.TouchableHighlight`
+  flex: 1;
+
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+`;
+
+export const ButtonsText = styled.Text`
+  font-size: 15px;
+  font-weight: ${(props) => (props.selected ? 'bold' : 'normal')}
+  color: white;
 `;

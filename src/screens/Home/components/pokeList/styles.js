@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import PokeDetails from '../../../../Components/PokeDetails';
+import PokeDetails from '../../../../components/PokeDetails';
 
 export const Container = styled.SafeAreaView`
   flex: 2;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Container, BadgeArea, Badge, PokeName, PokeNumber } from './styles';
 
-import Helpers from '../../Helpers';
+import Helpers from '../../helpers';
 
 const PokeDetails = ({ pokeData }) => {
   const { name, number, types } = pokeData;

@@ -1,19 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, PokeArea, Header, Stats, Text } from './styles';
-import Colors from '../../Utils/Colors';
+import PokeApi from '../../services/PokeApi';
+
+import { Container, PokeArea, Header, Stats } from './styles';
+import Colors from '../../utils/Colors';
 
 const Pokemon = ({ navigation }) => {
   const { pokeData, goBack } = navigation.state.params;
-
   const color = Colors.backgroundType[pokeData.types[0]];
+
+  const [pokeInfo, setPokeInfo] = useState({});
+
+  useEffect(() => {
+    PokeApi.getPokeDetails(pokeData.number).then((r) => {
+      setPokeInfo(r);
+    });
+  }, []);
 
   return (
     <Container color={color}>
       <PokeArea color={color}>
         <Header backKey={goBack} navigation={navigation} pokeData={pokeData} />
-        <Stats />
+        <Stats pokeData={pokeInfo} />
       </PokeArea>
     </Container>
   );

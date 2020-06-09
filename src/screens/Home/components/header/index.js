@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SearchInput from '../../../../Components/SearchInput';
+import SearchInput from '../../../../components/SearchInput';
 import Pokeball from '../../../../assets/Images/Pokeball.png';
 import IconFilter from '../../../../assets/icons/Filter.svg';
 import IconGeneration from '../../../../assets/icons/Generation.svg';

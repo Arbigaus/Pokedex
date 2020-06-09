@@ -11,13 +11,15 @@ import {
   DetailsArea,
   PokeImage,
   PokeBackground,
+  DetailsButton,
+  ButtonsText,
 } from './styles';
 import PokeballFull from '../../../../assets/Images/Pokeball_Full.png';
 import BackIcon from '../../../../assets/icons/Back.svg';
-import Colors from '../../../../Utils/Colors';
+import Colors from '../../../../utils/Colors';
 
-import Variables from '../../../../Utils/Variables';
-import Helpers from '../../../../Helpers';
+import Variables from '../../../../utils/Variables';
+import Helpers from '../../../../helpers';
 
 const { imgUrl } = Variables;
 
@@ -44,7 +46,17 @@ const PokeHeader = ({ navigation, pokeData }) => {
           <Details pokeData={pokeData} />
         </DetailsArea>
       </PokeArea>
-      <ButtonsArea />
+      <ButtonsArea>
+        <DetailsButton>
+          <ButtonsText>About</ButtonsText>
+        </DetailsButton>
+        <DetailsButton>
+          <ButtonsText selected>Stats</ButtonsText>
+        </DetailsButton>
+        <DetailsButton>
+          <ButtonsText>Evolution</ButtonsText>
+        </DetailsButton>
+      </ButtonsArea>
     </Container>
   );
 };

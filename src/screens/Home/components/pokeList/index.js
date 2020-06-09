@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-
-import PokeApi from '../../../../services/PokeApi';
 
 import {
   Container,
@@ -14,11 +12,11 @@ import {
   Details,
 } from './styles';
 
-import Colors from '../../../../Utils/Colors';
+import Colors from '../../../../utils/Colors';
 import PokeballFull from '../../../../assets/Images/Pokeball_Full.png';
 
-import Helpers from '../../../../Helpers';
-import Variables from '../../../../Utils/Variables';
+import Helpers from '../../../../helpers';
+import Variables from '../../../../utils/Variables';
 
 const { imgUrl } = Variables;
 

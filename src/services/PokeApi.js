@@ -1,10 +1,10 @@
 import Fetch from './FetchServices';
 
-const baseUrl = 'https://pokeapi.co/api/v2/';
+const baseUrl = 'https://pokeapi.co/api/v2';
 
 const getList = async () => {
   // const url = `${baseUrl}pokemon`;
-  const url = `${baseUrl}pokemon?limit=150`;
+  const url = `${baseUrl}/pokemon?limit=150`;
 
   const pokeLisData = await Fetch.get(url);
 
@@ -28,4 +28,19 @@ const getList = async () => {
   return res;
 };
 
-module.exports = { getList };
+const getPokeDetails = async (id) => {
+  const pokeDetails = await Fetch.get(`${baseUrl}/pokemon/${id}/`);
+
+  const { stats } = pokeDetails;
+
+  const statsArr = stats.map((stat) => {
+    return {
+      name: stat.stat.name,
+      baseStat: stat.base_stat,
+    };
+  });
+
+  return { ...pokeDetails, stats: statsArr };
+};
+
+module.exports = { getList, getPokeDetails };
