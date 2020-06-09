@@ -3,12 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.View`
   flex: 1;
   flex-direction: column;
-
   align-content: center;
+  z-index: 1;
 `;
 
 export const ImageBackground = styled.ImageBackground`
-  height: 200px;
+  max-height: 200px;
 
   display: flex;
   flex-direction: column;
