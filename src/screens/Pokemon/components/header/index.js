@@ -25,7 +25,7 @@ const { imgUrl } = Variables;
 
 const PokeHeader = ({ navigation, pokeData }) => {
   const handleBack = () => {
-    navigation.navigate('Home');
+    navigation.goBack();
   };
 
   return (

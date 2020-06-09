@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -17,13 +17,15 @@ import PokeballFull from '../../../../assets/Images/Pokeball_Full.png';
 
 import Helpers from '../../../../Helpers';
 import Variables from '../../../../Utils/Variables';
+import Context from '../../../../../context';
 
 const { imgUrl } = Variables;
 
 const PokeList = ({ navigation, pokemonEntries }) => {
-  const handleClick = (pokeData) => {
-    const { navigate } = navigation;
-    navigate('Pokemon', { navigation, pokeData });
+  const { setPokeData } = useContext(Context);
+  const handleClick = (pokeInfo) => {
+    setPokeData(pokeInfo);
+    navigation.navigate('Pokemon');
   };
 
   return (
