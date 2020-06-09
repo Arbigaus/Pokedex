@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import PokeApi from '../../services/PokeApi';
 
 import { Container, PokeArea, Header, Stats } from './styles';
-import Colors from '../../utils/Colors';
+import Colors from '../../Utils/Colors';
 
 const Pokemon = ({ navigation }) => {
   const { pokeData, goBack } = navigation.state.params;

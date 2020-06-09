@@ -15,7 +15,7 @@ import {
   TextInfoArea,
 } from './styles';
 
-import Colors from '../../../../utils/Colors';
+import Colors from '../../../../Utils/Colors';
 
 const PokeStats = ({ pokeData }) => {
   const [color, setColor] = useState('white');

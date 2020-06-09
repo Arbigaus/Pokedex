@@ -12,11 +12,11 @@ import {
   Details,
 } from './styles';
 
-import Colors from '../../../../utils/Colors';
+import Colors from '../../../../Utils/Colors';
 import PokeballFull from '../../../../assets/Images/Pokeball_Full.png';
 
-import Helpers from '../../../../helpers';
-import Variables from '../../../../utils/Variables';
+import Helpers from '../../../../Helpers';
+import Variables from '../../../../Utils/Variables';
 
 const { imgUrl } = Variables;
 

@@ -16,10 +16,10 @@ import {
 } from './styles';
 import PokeballFull from '../../../../assets/Images/Pokeball_Full.png';
 import BackIcon from '../../../../assets/icons/Back.svg';
-import Colors from '../../../../utils/Colors';
+import Colors from '../../../../Utils/Colors';
 
-import Variables from '../../../../utils/Variables';
-import Helpers from '../../../../helpers';
+import Variables from '../../../../Utils/Variables';
+import Helpers from '../../../../Helpers';
 
 const { imgUrl } = Variables;
 
