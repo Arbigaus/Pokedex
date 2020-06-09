@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 
+import Context from '../../context';
 import { Container, ShowPokeList, LoadingText } from './styles';
 
 import Header from './components/header';
 import PokeApi from '../../services/PokeApi';
 
 function Home({ navigation }) {
-  const [pokemonEntries, setPokemonEntries] = useState([]);
+  const { pokemonEntries, setPokemonEntries } = useContext(Context);
 
   useEffect(() => {
-    PokeApi.getList().then((r) => {
-      console.log(r[0]);
-      setPokemonEntries(r);
-    });
+    if (pokemonEntries.length < 1) {
+      PokeApi.getList().then((r) => {
+        setPokemonEntries(r);
+      });
+    }
   }, []);
 
   return (

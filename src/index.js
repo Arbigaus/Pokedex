@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Index from '../routes';
+import Context from './context';
 
 const App = () => {
-  return <Index />;
+  const [pokemonEntries, setPokemonEntries] = useState([]);
+  return (
+    <Context.Provider value={{ pokemonEntries, setPokemonEntries }}>
+      <Index />
+    </Context.Provider>
+  );
 };
 
 export default App;
