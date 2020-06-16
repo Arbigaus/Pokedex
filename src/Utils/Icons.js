@@ -81,6 +81,11 @@ const types = {
     unselected: <FairyUnselected width="100%" height="100%" />,
     white: <FairyWhite width="100%" height="100%" />,
   },
+  fighting: {
+    selected: <FightingSelected width="100%" height="100%" />,
+    unselected: <FightingUnselected width="100%" height="100%" />,
+    white: <FightingWhite width="100%" height="100%" />,
+  },
   fire: {
     selected: <FireSelected width="100%" height="100%" />,
     unselected: <FireUnselected width="100%" height="100%" />,
